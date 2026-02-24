@@ -12,8 +12,12 @@ dependencies = [
     "black (==22.1.0)",
     "blue (>=0.9.1,<0.10.0)",
     "taskipy (>=1.14.1,<2.0.0)",
-    "pre-commit (>=4.5.1,<5.0.0)"
+    "pre-commit (>=4.5.1,<5.0.0)",
+    "bandit (>=1.9.3,<2.0.0)"
 ]
+
+[tool.bandit]
+exclude_dirs = [".venv"]
 
 [tool.isort]
 profile = "black"
@@ -27,4 +31,5 @@ format = """
 isort teste_blue.py
 black teste_black.py
 flake8 teste_flake8.py
+bandit teste_bandit.py
 """

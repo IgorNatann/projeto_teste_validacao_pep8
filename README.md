@@ -83,7 +83,6 @@ poetry run task format
 ## Diagnostico Atual do Projeto
 
 - O fluxo de qualidade ja esta automatizado com `pre-commit`.
-- O README anterior estava desatualizado (citava apenas `teste.py`).
 - O repositorio esta organizado como ambiente de estudo de qualidade de codigo e processamento de dados.
 
 ## Proximos Passos Recomendados
@@ -91,3 +90,5 @@ poetry run task format
 - Adicionar Bandit ao pipeline para analise de seguranca.
 - Consolidar as versoes dos scripts em uma estrutura unica (ex.: pasta `src/`).
 - Criar testes automatizados para validar o comportamento funcional.
+
+![alt text](image.png)
