@@ -27,4 +27,4 @@ format = """
 isort teste_blue.py
 black teste_black.py
 flake8 teste_flake8.py
-""" 
+"""
