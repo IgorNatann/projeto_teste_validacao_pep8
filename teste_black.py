@@ -1,12 +1,14 @@
-import pandas as pd
 from multiprocessing import Pool, cpu_count
+
+import pandas as pd
 from tqdm import tqdm  # importa o tqdm para barra de progresso
 
 CONCURRENCY = cpu_count()
 
 total_linhas = 1_000_000_000  # Total de linhas conhecido
 chunksize = 100_000_000  # Define o tamanho do chunk
-filename = "data/measurements.txt"  # Certifique-se de que este é o caminho correto para o arquivo
+# Certifique-se de que este é o caminho correto para o arquivo
+filename = "data/measurements.txt"
 
 
 def process_chunk(chunk):

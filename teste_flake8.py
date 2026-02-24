@@ -1,30 +1,27 @@
-from csv import reader
-from collections import defaultdict, Counter
-from tqdm import tqdm  # barra de progresso
 import time
+from collections import Counter, defaultdict
+from csv import reader
+
+from tqdm import tqdm  # barra de progresso
 
 NUMERO_DE_LINHAS = 1_000_000_000
 
 
 def processar_temperaturas(path_do_csv):
     # utilizando infinito positivo e negativo para comparar
-    minimas = defaultdict(lambda: float('inf'))
-    maximas = defaultdict(lambda: float('-inf'))
+    minimas = defaultdict(lambda: float("inf"))
+    maximas = defaultdict(lambda: float("-inf"))
     somas = defaultdict(float)
     medicoes = Counter()
 
-    with open(path_do_csv, 'r', encoding="utf-8") as file:
-        _reader = reader(file, delimiter=';')
+    with open(path_do_csv, "r", encoding="utf-8") as file:
+        _reader = reader(file, delimiter=";")
         # tqdm no iterador mostra a porcentagem de conclusao.
         for row in tqdm(_reader, total=NUMERO_DE_LINHAS, desc="Processando"):
             nome_da_station, temperatura = str(row[0]), float(row[1])
             medicoes.update([nome_da_station])
-            minimas[nome_da_station] = min(
-                minimas[nome_da_station], temperatura
-            )
-            maximas[nome_da_station] = max(
-                maximas[nome_da_station], temperatura
-            )
+            minimas[nome_da_station] = min(minimas[nome_da_station], temperatura)
+            maximas[nome_da_station] = max(maximas[nome_da_station], temperatura)
             somas[nome_da_station] += temperatura
 
     print("Dados carregados. Calculando estatisticas...")
@@ -59,9 +56,6 @@ if __name__ == "__main__":
     end_time = time.time()  # Tempo de termino
 
     for station, metrics in resultados.items():
-        print(station, metrics, sep=': ')
+        print(station, metrics, sep=": ")
 
-    print(
-        f"\nProcessamento concluido em "
-        f"{end_time - start_time:.2f} segundos."
-    )
+    print(f"\nProcessamento concluido em " f"{end_time - start_time:.2f} segundos.")
